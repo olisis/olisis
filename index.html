@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <style>
+.hidden {
+  visibility: hidden;
+}
+
+div#board {
+	position: relative;
+	width: 2816px;
+	height: 2112px;
+	<!--width: 1024px;-->
+	<!--height: 690px;-->
+	margin-left: 0px;
+	<!--background: url("Rodents-holes.jpg") no-repeat;-->
+}
+video#mouse_video {
+   position: fixed;
+  left: 260px;
+  top: 0px;
+  min-width: 100%;
+  min-height: 100%;
+}
+.rod0 {
+background: url("Rodents-holes1.jpg") no-repeat;
+}
+.rod1 {
+background: url("Rodents-holes0.jpg") no-repeat;
+}
+<!--.rod2 {
+background: url("Rodents-holes2.jpg") no-repeat;
+}-->
+divrmessage {
+	position: absolute;
+	left: 6px;
+	top: 6px;
+}
+table#holes {
+	border-spacing: 0px;
+	/* could use border-collapse instead */
+	/* border-collapse: collapse; */
+	position: absolute;
+	left: 260px;
+	top: 6px;
+	border: none !important;
+}
+td {
+	width: 66px;
+	height: 66px;
+}
+th {
+    width: 66px;
+	height: 66px;
+	color: white;
+	background-color: rgba(0,0,0 ,.4);
+}
+form {
+width: 90px;
+	position: relative;
+	bottom: 0px;
+	right: 0px;
+	padding: 15px;
+	background-color: white);
+}
+form input {
+	background-color: white;
+	border-color: white);
+	font-size: 10px;
+	width: 140px;
+    padding: 2px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#rodentsButton {
+background-color:grey;
+color: white;
+}
+
+input#miceInput::before {
+    content: "mouse";
+}
+.rowNames {
+    width: 66px;
+	height: 66px;
+    color: white;
+	background-color: rgba(0,0,0 ,.4);
+	padding-left:2px;
+	text-align: center;
+}
+tbody{
+  display:block;
+  overflow:auto;
+  height:630px;
+  width: 790px;
+  border: white;
+}
+thead tr{
+  display:block;
+}
+#div1 {
+  width: 350px;
+  height: 190px;
+  padding: 2px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<title>Find all rodents!</title>
+</head>
+<body>
+<div id='board'></div>
+<div id='message'>
+    <h1 id='head1' style="color: white; padding-left: 15px; background-color:rgba(0,0,0 ,.4)">Find all rodents!</h1>
+    <!--<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <table id = "test" border="2" BORDERCOLOR="white" style="border: none !important;">
+            <tr><td id="test11" style="width: 25px; 	height: 25px;"></td><td id="test12" style="width: 25px; 	height: 25px;"></tr>
+            <tr><td id="test21" style="width: 25px; 	height: 25px;"></td><td id="test22" style="width: 25px; 	height: 25px;"></tr>
+            <tr><td id="test31" style="width: 25px; 	height: 25px;"></td><td id="test32" style="width: 25px; 	height: 25px;"></tr>
+            <tr><td id="test41" style="width: 25px; 	height: 25px;"></td><td id="test42" style="width: 25px; 	height: 25px;"></tr>
+        </table>
+    </div>-->
+    <h2 id='numClicks' style="color: white; padding-left: 15px; background-color:rgba(0,0,0 ,.4)">No shit!</h2>
+    <h2 id='numRdts' style="color: white; padding-left: 15px; background-color:rgba(0,0,0 ,.4)">Find all rodents</h2>
+    <div id="found">
+    </div>
+    <div id = "inputform">
+    <form>
+        <div style="white-space: nowrap;">
+        <img id="mouseDrag" src="mouse-transparent.png" draggable="true" ondragstart="drag(event)" height="35" width="45" style="background-color:rgba(255,255,255, .4);  padding:0px; display: inline-block;">
+        <input type="text" id="miceInput" placeholder="4 x mice (1 hole)">
+        </div>
+
+        <div style="white-space: nowrap;">
+            <img id="ratDrag" src="rat-transparent.png" draggable="true" ondragstart="drag(event)" height="35" width="55" style="background-color:rgba(255,255,255, .4);  padding:0px; display: inline-block;">
+            <input type="text" id="ratsInput" placeholder=" 3 x rats (2 holes)">
+        </div>
+        <div style="white-space: nowrap;">
+            <img id="rabbitDrag" src="2rabbits-transparent.png" draggable="true" ondragstart="drag(event)"  height="35" width="60" style="background-color:rgba(0,0,0 , .3);  padding:0px; display: inline-block;">
+            <input type="text" id="rabbitsInput" placeholder=" 2 x rabbits  (3 holes)">
+        </div>
+        <div style="white-space: nowrap;">
+            <img id="hareDrag" src="hare-transparent.png" draggable="true" ondragstart="drag(event)" height="35" width="75" style="background-color:rgba(255,255,255, .3);  padding:0px; display: inline-block;">
+            <input type="text" id="haresInput" placeholder=" 1 x hares (4 holes)">
+        </div>
+        <br>
+        <input type="button" id="rodentsButton" value="Create rodents!">
+    </form>
+    </div>
+</div>
+<table id="holes" border="2" BORDERCOLOR="white">
+    <thead>
+        <tr>
+            <th></th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+        </tr>
+    </thead>
+    <tbody id="tbody1">
+    <tr>
+
+    </tr>
+    </tbody>
+</table>
+<audio id="mouse_sound">
+    <source src="mouse.mp3" type="audio/mpeg">
+</audio>
+<audio id="hamster_sound">
+    <source src="hamster.mp3" type="audio/mpeg">
+</audio>
+<audio id="rat_sound">
+    <source src="rat.mp3" type="audio/mpeg">
+</audio>
+<audio id="rabbit_sound">
+    <source src="rabbit.mp3" type="audio/mpeg">
+</audio>
+<audio id="hare_sound">
+    <source src="hare.mp3" type="audio/mpeg">
+</audio>
+<audio id="poop_sound">
+    <source src="poop.mp3" type="audio/mpeg">
+</audio>
+<audio id="win_sound">
+    <source src="game-win.mp3" type="audio/mpeg">
+</audio>
+<video autoplay muted loop id="mouse_video">
+    <source src="mouse-video.mp4" type="video/mp4">
+</video>
+
+
+
+
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script-->
+<script src="mousecatch.js"></script>
+</body>
+</html>

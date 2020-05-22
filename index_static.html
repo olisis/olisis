@@ -1,0 +1,144 @@
+<!doctype html>
+<head>
+    <style>
+        body {
+            background: grey;
+        }
+        #name {
+            color: greenyellow;
+            text-align:center;
+        }
+         #text, #nager {
+            color: greenyellow;
+             white-space: pre-line;
+             text-align:center;
+        }
+        audio {
+            height: 20px;
+            width: 200px;
+            display: block;
+            align: center;
+        }
+        video {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+        }
+        img, audio {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+        #tbl {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            border: black;
+        }
+        th {
+            font-size: xx-large;
+            border: transparent;
+            font-weight: normal;
+        }
+@keyframes shit {
+from {height: 0px; width: 0px;}
+to {height: 200px; width: 200px;}
+}
+
+
+
+.shit {
+width: 0px;
+height: 0px;
+animation-name: shit;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+animation-direction: reverse;
+}
+
+
+@keyframes example {
+from {height: 0px; width: 0px;}
+to {height: 200px; width: 200px;}
+}
+
+
+
+.anim {
+width: 0px;
+height: 0px;
+animation-name: example;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+    </style>
+</head>
+<body>
+<h1 id="name">
+    Dani's Home Page!
+</h1>
+
+<p id="text">Ich bin Dani.
+             Ich bin 9 Jahre alt.
+             Ich bin in der 2. Klasse.
+             Ich habe ein Computerspiel programmiert,
+             wo man Nager finden muss.
+             Es gibt dort 4 Mäuse , 3 Ratten , 2 Kaninchen , 1 Hasen.
+</p>
+<video autoplay playsinline muted loop id="mouse_video">
+    <source src="mouse-video.mp4" type="video/mp4">
+</video>
+<h2 id="nager">
+    So sehen die Nager aus (die Nager können auch reden!):
+</h2>
+<div >
+    <table  id="tbl"  border="1" BORDERCOLOR="white">
+        <tr><
+            <th></th>
+            <th style="font-size: xx-large; border: transparent; padding: 10px;  width: 200px;">0</th>
+            <th style="font-size: xx-large; border: transparent; padding: 10px;  width: 200px;">1</th>
+        </tr>
+        <tr>
+            <td style="font-size: xx-large; border: transparent; padding: 10px; height: 200px; ">0</td>
+            <td>
+                <img class="anim" src="mouse-transparent.png" height="200" width="200"</img>
+            </td>
+            <td>
+                <img  class="shit" src="mouse-transparent.png" height="200" width="200" style="background-color:transparent;  padding:0px;">
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: xx-large; border: transparent; padding: 10px; height: 200px; ">1</td>
+            <td>
+                <img  class="shit" src="mouse-transparent.png" height="200" width="200" style="background-color:transparent;  padding:0px;">
+            </td>
+            <td>
+                <img class="anim" src="mouse-transparent.png" height="200" width="200" style="background-color:transparent;  padding:0px;">
+            </td>
+        </tr>
+    </table>
+</div>
+<img src="mouse-transparent.png" height="200" width="200"</img>
+<audio id="mouse_sound" controls>
+    <source src="mouse.mp3" type="audio/mpeg">
+</audio>
+<img src="rat-transparent.png" height="280" width="400"</img>
+<audio id="rat_sound" controls>
+    <source src="rat.mp3" type="audio/mpeg">
+</audio>
+<img src="2rabbits-transparent.png" height="400" width="600"</img>
+<audio id="rabbit_sound" controls>
+    <source src="rabbit.mp3" type="audio/mpeg">
+</audio>
+<img src="hare-transparent.png" height="400" width="800"</img>
+<audio id="hare_sound" controls>
+    <source src="hare.mp3" type="audio/mpeg">
+</audio>
+
+
+
+
+</body>
