@@ -1,0 +1,178 @@
+h2{
+    font-size: 18px;
+    padding: 10px 20px;
+    color: #575ed8;
+}
+
+#mario-chat{
+    max-width: 2000px;
+    margin-lef: 40px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+}
+
+#chat-window{
+    height: 60px;
+    overflow: auto;
+    background: #f9f9f9;
+}
+
+#output p{
+    padding: 14px 0px;
+    margin: 0 20px;
+    border-bottom: 1px solid #e9e9e9;
+    color: #555;
+}
+
+#feedback p{
+    color: #aaa;
+    padding: 14px 0px;
+    margin: 0 20px;
+}
+
+#output strong{
+    color: #575ed8;
+}
+
+label{
+    box-sizing: border-box;
+    display: block;
+    padding: 10px 20px;
+}
+
+input{
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #eee;
+    border: 0;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-family: Nunito;
+    font-size: 16px;
+}
+
+button{
+    background: #575ed8;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+}
+
+
+
+
+
+
+
+.hidden {
+  visibility: hidden;
+}
+
+div#board {
+	position: relative;
+	width: 2816px;
+	height: 2112px;
+	<!--width: 1024px;-->
+	<!--height: 690px;-->
+	margin-left: 0px;
+	<!--background: url("Rodents-holes.jpg") no-repeat;-->
+}
+video#mouse_video {
+   position: fixed;
+  left: 260px;
+  top: 0px;
+  min-width: 100%;
+  min-height: 100%;
+}
+.rod0 {
+background: url("Rodents-holes1.jpg") no-repeat;
+}
+.rod1 {
+background: url("Rodents-holes0.jpg") no-repeat;
+}
+<!--.rod2 {
+background: url("Rodents-holes2.jpg") no-repeat;
+}-->
+div#message {
+	position: absolute;
+	left: 6px;
+	top: 6px;
+}
+table#holes {
+	border-spacing: 0px;
+	/* could use border-collapse instead */
+	/* border-collapse: collapse; */
+	position: absolute;
+	left: 260px;
+	top: 6px;
+	border: none !important;
+}
+td {
+	width: 66px;
+	height: 66px;
+}
+th {
+    width: 66px;
+	height: 66px;
+	color: white;
+	background-color: rgba(0,0,0 ,.4);
+}
+form {
+width: 90px;
+	position: relative;
+	bottom: 0px;
+	right: 0px;
+	padding: 15px;
+	background-color: white);
+}
+form input {
+	background-color: white;
+	border-color: white);
+	font-size: 10px;
+	width: 140px;
+    padding: 2px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#rodentsButton {
+background-color:grey;
+color: white;
+}
+
+input#miceInput::before {
+    content: "mouse";
+}
+.rowNames {
+    width: 66px;
+	height: 66px;
+    color: white;
+	background-color: rgba(0,0,0 ,.4);
+	padding-left:2px;
+	text-align: center;
+}
+tbody{
+  display:block;
+  overflow:auto;
+  height:630px;
+  width: 790px;
+  border: white;
+}
+thead tr{
+  display:block;
+}
+#div1 {
+  width: 350px;
+  height: 190px;
+  padding: 2px;
+  border: 1px solid #aaaaaa;
+}
