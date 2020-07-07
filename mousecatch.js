@@ -84,7 +84,7 @@ var tbody1 = document.getElementById("tbody1");
 tbody1.setAttribute("style", `height: ${winH}px;`);
 //tbody1.setAttribute("style", `height: 300px;`);
 
-for (var i=0; i < 10; i++) {
+for (var i=0; i < 2000; i++) {
 
   row = document.createElement('tr');
   rowN = document.createElement('td');
@@ -367,7 +367,7 @@ haresInput.value = numberOfHares;
                   rodents.push(hamster);
                   }
 
-      for (n = 0; n < 200; n++ ) {
+      for (n = 0; n < 20000; n++ ) {
          if (!isRodent(n, 1)) {
 
          var shit = new Shit("mouse_poop", n, 1, '<img src="Mouse_Poop.png" height="60" width="60" style="background-color:transparent;  padding:0px;">', 'poop_sound');
