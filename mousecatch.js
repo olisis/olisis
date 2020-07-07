@@ -367,7 +367,7 @@ haresInput.value = numberOfHares;
                   rodents.push(hamster);
                   }
 
-      for (n = 0; n < 200; n++ ) {
+      for (n = 0; n < 20000; n++ ) {
          if (!isRodent(n, 1)) {
 
          var shit = new Shit("mouse_poop", n, 1, '<img src="Mouse_Poop.png" height="60" width="60" style="background-color:transparent;  padding:0px;">', 'poop_sound');
