@@ -84,7 +84,7 @@ var tbody1 = document.getElementById("tbody1");
 tbody1.setAttribute("style", `height: ${winH}px;`);
 //tbody1.setAttribute("style", `height: 300px;`);
 
-for (var i=0; i < 2000; i++) {
+for (var i=0; i < 10; i++) {
 
   row = document.createElement('tr');
   rowN = document.createElement('td');
