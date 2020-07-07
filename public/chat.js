@@ -2,7 +2,7 @@
 var socket = io.connect('https://findrodents.herokuapp.com/');
 
 // Query DOM
-var message = document.getElementById('message'),
+var message = document.getElementById('move'),
       handle = document.getElementById('handle'),
       btn = document.getElementById('send'),
       output = document.getElementById('output'),
