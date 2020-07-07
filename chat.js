@@ -1,5 +1,5 @@
 // Make connection
-var socket = io.connect('https://findrodents.herokuapp.com/');
+var socket = io.connect('https://olisis.github.io/olisis/');
 
 // Query DOM
 var message = document.getElementById('message'),
