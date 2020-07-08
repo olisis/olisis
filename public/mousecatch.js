@@ -3,10 +3,10 @@ var socket = io.connect('https://findrodents.herokuapp.com/');
 
 // Query DOM
 var message = document.getElementById('move'),
-      handle = document.getElementById('handle'),
-      btn = document.getElementById('send'),
-      output = document.getElementById('output'),
-      feedback = document.getElementById('feedback');
+    handle = document.getElementById('handle'),
+    btn = document.getElementById('send'),
+    output = document.getElementById('output'),
+    feedback = document.getElementById('feedback');
 
 // Emit events
 btn.addEventListener('click', function(){
@@ -21,10 +21,24 @@ message.addEventListener('keypress', function(){
     socket.emit('typing', handle.value);
 })
 
+function add_lsnr(r) {
+        for (var i=r.pos; i < (r.pos+r.len); i++) {
+        //console.log("adding listener for: ", r.name, " to ", r.pos)
+                     e = document.getElementById(i);
+                     e.addEventListener('click', function() {
+                        r.draw();
+                        r.make_sound();
+                     })
+         }
+      }
+
 // Listen for events
 socket.on('chat', function(data){
     feedback.innerHTML = '';
-    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
+    output.innerHTML += '<p>' + data.handle + '\'s move is ' + data.message + '</p>';
+    e = document.getElementById(data.message);
+    rodents[0].draw();
+    rodents[0].make_sound();
 });
 
 socket.on('typing', function(data){
@@ -228,7 +242,7 @@ function Shit(name, pos, len, pic, snd)  {
 
 }
 
-function add_lsnr(r) {
+/*function add_lsnr(r) {
         for (var i=r.pos; i < (r.pos+r.len); i++) {
         //console.log("adding listener for: ", r.name, " to ", r.pos)
                      e = document.getElementById(i);
@@ -237,7 +251,9 @@ function add_lsnr(r) {
                         r.make_sound();
                      })
          }
-      }
+      }*/
+
+
 
 var rodents = [];
 
