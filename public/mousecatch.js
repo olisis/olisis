@@ -1,3 +1,36 @@
+// Make connection
+var socket = io.connect('https://findrodents.herokuapp.com/');
+
+// Query DOM
+var message = document.getElementById('move'),
+      handle = document.getElementById('handle'),
+      btn = document.getElementById('send'),
+      output = document.getElementById('output'),
+      feedback = document.getElementById('feedback');
+
+// Emit events
+btn.addEventListener('click', function(){
+    socket.emit('chat', {
+        message: message.value,
+        handle: handle.value
+    });
+    message.value = "";
+});
+
+message.addEventListener('keypress', function(){
+    socket.emit('typing', handle.value);
+})
+
+// Listen for events
+socket.on('chat', function(data){
+    feedback.innerHTML = '';
+    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
+});
+
+socket.on('typing', function(data){
+    feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
+});
+
 allowDrop = function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -272,7 +305,7 @@ function handleRodentsButton() {
 
 
 
-document.getElementById("mouse_video").remove();
+/*document.getElementById("mouse_video").remove();*/
 //var inputform = document.getElementById("inputform");
 //inputform.setAttribute("style", "display: none;");
 
