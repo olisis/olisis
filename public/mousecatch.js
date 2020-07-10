@@ -37,8 +37,17 @@ socket.on('chat', function(data){
     feedback.innerHTML = '';
     output.innerHTML += '<p>' + data.handle + '\'s move is ' + data.message + '</p>';
     e = document.getElementById(data.message);
-    rodents[0].draw();
-    rodents[0].make_sound();
+    console.log(rodents);
+
+    function findRods(rodent) {
+        console.log('Check rodent at :', rodent.pos, ' data is: ', data);
+        if (data.message == rodent.pos) {
+            rodent.draw();
+            rodent.make_sound();
+        }
+    }
+    rodents.forEach(findRods);
+
 });
 
 socket.on('typing', function(data){
