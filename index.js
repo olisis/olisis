@@ -21,18 +21,12 @@ io.on('connection', (socket) => {
     // Handle move event
     socket.on('move', function(data){
          console.log(data);
-        io.sockets.emit('move', data);
+        socket.broadcast.emit('move', data);
     });
 
     // Handle chat event
         socket.on('chat', function(data){
             console.log(data);
-            io.sockets.emit('chat', data);
+            socket.broadcast.emit('chat', data);
         });
-
-    // Handle typing event
-    socket.on('typing', function(data){
-        socket.broadcast.emit('typing', data);
-    });
-
 });
