@@ -45,7 +45,6 @@ socket.on('move', function(data){
                                   });
 
             }
-}
 
 
 });
