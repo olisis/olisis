@@ -5,8 +5,7 @@ var socket = io.connect('https://findrodents.herokuapp.com/');
 var message = document.getElementById('move'),
     handle = document.getElementById('handle'),
     btn = document.getElementById('send'),
-    output = document.getElementById('output'),
-    feedback = document.getElementById('feedback');
+    output = document.getElementById('output');
 
 // Emit events
 btn.addEventListener('click', function(){
@@ -17,42 +16,44 @@ btn.addEventListener('click', function(){
     message.value = "";
 });
 
-/*message.addEventListener('keypress', function(){
-    socket.emit('typing', handle.value);
-})*/
-
-
 var findRodsMessage = '...';
 // Listen for events
 socket.on('move', function(data){
 
-    function findRods(rodent) {
-        if (data.message == rodent.pos) {
-        rodent.make_sound();
-        return true;
-        }
-        else {
-        return false;
-        }
-    }
+        function findRods(rodent) {
+                if (data.message == rodent.pos) {
+                rodent.make_sound();
+                return true;
+                }
+                else {
+                return false;
+                }
+            }
 
-    console.log( rodents.some(findRods));
+           if ( rodents.some(findRods) ) {
+           console.log("is true");
 
-   if ( rodents.some(findRods) ) {
-   console.log("is true");
+           socket.emit('chat', {
+                                   message: '<p>' + data.handle + ' You found a '+ rodent.name +'!</p>',
+                                   handle: handle.value
+                               });
+           }
+           else {
+           socket.emit('chat', {
+                                      message: '<p>' + data.handle + 'You missed! </p>',
+                                      handle: handle.value
+                                  });
 
-   socket.emit('chat', {
-                           message: '<p>' + data.handle + ' You found a '+ rodent.name +'!</p>',
-                           handle: handle.value
-                       });
-   }
-   else {
-   socket.emit('chat', {
-                              message: '<p>' + data.handle + 'You missed! </p>',
-                              handle: handle.value
-                          });
-   };
+            }
+}
+
+
 });
+
+socket.on('chat', function(data){
+        output.innerHTML = data.message;
+});
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 allowDrop = function allowDrop(ev) {
   ev.preventDefault();
