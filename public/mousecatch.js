@@ -13,44 +13,53 @@ btn.addEventListener('click', function(){
         message: message.value,
         handle: handle.value
     });
-    message.value = "";
+    //message.value = "";
 });
 
 var findRodsMessage = '...';
 // Listen for events
 socket.on('move', function(data){
 
-        function findRods(rodent) {
+            rdn = rodents.find(function(rodent){
                 if (data.message == rodent.pos) {
-                rodent.make_sound();
-                return true;
+                return rodent;
                 }
-                else {
-                return false;
-                }
-            }
+            });
+            if ( rdn ) {
+                           document.getElementById(rdn.pos).style.backgroundColor = "grey";
+                           rdn.make_sound();
+                           socket.emit('chat', {
+                                                   message: rdn.name,
+                                                   handle: handle.value
+                                               });
+                           }
+                       else {
+                            socket.emit('chat', {
+                                                  message: '<p>Missed/p>',
+                                                  handle: handle.value
+                                              });
 
-           if ( rodents.some(findRods) ) {
-           console.log("is true");
-
-           socket.emit('chat', {
-                                   message: '<p>' + data.handle + ' You found a '+ rodent.name +'!</p>',
-                                   handle: handle.value
-                               });
-           }
-           else {
-           socket.emit('chat', {
-                                      message: '<p>' + data.handle + 'You missed! </p>',
-                                      handle: handle.value
-                                  });
-
-            }
+                        }
 
 
 });
 
 socket.on('chat', function(data){
-        output.innerHTML = data.message;
+        output.innerHTML = '<p>'+data.message+'</p>';
+
+        if (data.message === "Mouse") {
+            var rodentFound = new rodent(
+                              "Mouse",
+                              1,
+                              '<img src="mouse-transparent.png" height="35" width="60" style="background-color:transparent;  padding:0px;">',
+                              'mouse_sound'
+                          );
+                          rodentFound.pos = message.value;
+
+             };
+             rodentFound.draw();
+             document.getElementById(message.value).style.backgroundColor = "grey";
+             rodentFound.make_sound();
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,7 +73,6 @@ function drag(ev) {
 
 drop = function drop(ev) {
      var data = ev.dataTransfer.getData("text");
-
      if (data.startsWith('mouseDrag')) {
      var rodentToDrop = new rodent(
                   "Mouse",
@@ -72,6 +80,7 @@ drop = function drop(ev) {
                   '<img  id = "mouseDrag" draggable="true" ondragstart="drag(event)" src="mouse-transparent.png" height="35" width="60" style="background-color:transparent;  padding:0px;">',
                   'mouse_sound'
                   );
+                  console.log(rodentToDrop);
 
 
      };
