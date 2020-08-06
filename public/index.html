@@ -10,30 +10,28 @@
     <div id='board'></div>
     <div id='message'>
         <h1 id='head1' style="color: white; padding-left: 15px; background-color:rgba(0,0,0 ,.4)">Find rodents!</h1>
-        <h2 id='numClicks' style="color: white; padding-left: 15px; background-color:rgba(0,0,0 ,.4)">No shit!</h2>
         <h2 id='numRdts' style="color: white; padding-left: 15px; background-color:rgba(0,0,0 ,.4)">Find all rodents</h2>
         <div id="found"></div>
         <div id = "inputform">
             <form>
                 <div style="white-space: nowrap;">
                     <img id="mouseDrag" src="mouse-transparent.png" draggable="true" ondragstart="drag(event)" height="35" width="45" style="background-color:rgba(255,255,255, .4);  padding:0px; display: inline-block;">
-                    <input type="text" id="miceInput" placeholder="4 x mice (1 hole)">
+                    <br><br>
                 </div>
 
                 <div style="white-space: nowrap;">
                     <img id="ratDrag" src="rat-transparent.png" draggable="true" ondragstart="drag(event)" height="35" width="55" style="background-color:rgba(255,255,255, .4);  padding:0px; display: inline-block;">
-                    <input type="text" id="ratsInput" placeholder=" 3 x rats (2 holes)">
+                    <br><br>
                 </div>
                 <div style="white-space: nowrap;">
                     <img id="rabbitDrag" src="2rabbits-transparent.png" draggable="true" ondragstart="drag(event)"  height="35" width="60" style="background-color:rgba(0,0,0 , .3);  padding:0px; display: inline-block;">
-                    <input type="text" id="rabbitsInput" placeholder=" 2 x rabbits  (3 holes)">
+                    <br><br>
                 </div>
                 <div style="white-space: nowrap;">
                     <img id="hareDrag" src="hare-transparent.png" draggable="true" ondragstart="drag(event)" height="35" width="75" style="background-color:rgba(255,255,255, .3);  padding:0px; display: inline-block;">
-                    <input type="text" id="haresInput" placeholder=" 1 x hares (4 holes)">
+                    <br><br>
                 </div>
                 <br>
-                <input type="button" id="rodentsButton" value="Create rodents!">
             </form>
         </div>
         <div id="mario-chat">
@@ -42,7 +40,7 @@
                 <div id="output"></div>
                 <div id="feedback"></div>
             </div>
-            <input id="handle" type="text" placeholder="Player" />
+           <!-- <input id="handle" type="text" placeholder="Player" />-->
             <input id="move" type="text" placeholder="Move" />
             <button id="send">Send</button>
         </div>
